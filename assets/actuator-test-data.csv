@@ -1,0 +1,14 @@
+actuator,injected_air_ml,mean_peak_blocked_force_N,standard_deviation_N,repetitions
+PneuNet,15,0.164,0.020,3
+PneuNet,20,0.376,0.020,3
+PneuNet,25,0.644,0.015,3
+PneuNet,30,0.870,0.046,3
+PneuNet,35,0.991,0.029,3
+PneuNet,40,0.975,0.154,5
+Fibre-reinforced,35,0.144,0.020,3
+Fibre-reinforced,40,0.294,0.035,3
+Fibre-reinforced,45,0.428,0.015,3
+Fibre-reinforced,50,0.549,0.035,3
+Fibre-reinforced,55,0.795,0.026,3
+Fibre-reinforced,60,0.952,0.125,5
+
