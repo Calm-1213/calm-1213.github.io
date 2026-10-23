@@ -11,3 +11,6 @@ Edit index.html, styles.css, cv.html and the case studies in projects/. Media an
 
 ## Coursework release
 Do not modify the assessed website after the submission deadline during assessment. Keep a copy of the submitted release. Continue to retain the website after the minimum three-week period.
+
+## Homepage motion
+The homepage loads motion.css and motion.js in addition to the shared styles. It includes a silent real-project video preview, an illustrative canvas background, scroll reveals and video dialogs. Pause motion stops decorative animation and the preview. The operating system's reduced-motion preference is respected. Preview playback pauses when the hero is offscreen or the tab is hidden; autoplay is skipped when data saving is enabled. No third-party animation libraries or external fonts are needed.
