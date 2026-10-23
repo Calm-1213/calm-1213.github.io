@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 concurrency:
@@ -18,21 +18,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Import original project assets
-        run: python _migration/import_assets.py
-      - name: Save native assets in the repository
+      - name: Prepare the public website
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/
-          if ! git diff --cached --quiet; then
-            git commit -m "Import verified portfolio media and documents"
-            git push origin HEAD:main
-          fi
+          mkdir -p _site
+          cp -r index.html cv.html credits.html styles.css app.js assets projects .nojekyll _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
