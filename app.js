@@ -13,3 +13,19 @@ for(const [key,s]of Object.entries(series)){if(mode!=='both'&&mode!==key)continu
 out+='<circle cx="90" cy="22" r="4" fill="#9b3e29"/><text x="102" y="27">PneuNet</text><circle cx="208" cy="22" r="4" fill="#50684b"/><text x="220" y="27">Fibre-reinforced</text>';chart.innerHTML=out;}
 document.querySelectorAll('[data-series]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-series]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));draw(button.dataset.series)}));draw('both');
 }
+
+// Keep the visitor's chosen portfolio colour style across pages.
+const portfolioThemeNames = ['ocean', 'forest', 'ink'];
+let portfolioTheme = 'ocean';
+try { const savedTheme = localStorage.getItem('yuzhou-portfolio-theme'); if (portfolioThemeNames.includes(savedTheme)) portfolioTheme = savedTheme; } catch {}
+function applyPortfolioTheme(name) {
+  document.documentElement.dataset.theme = name;
+  document.querySelectorAll('[data-theme-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === name)));
+}
+applyPortfolioTheme(portfolioTheme);
+document.querySelectorAll('[data-theme-choice]').forEach(button => button.addEventListener('click', () => {
+  const name = button.dataset.themeChoice;
+  if (!portfolioThemeNames.includes(name)) return;
+  applyPortfolioTheme(name);
+  try { localStorage.setItem('yuzhou-portfolio-theme', name); } catch {}
+}));
