@@ -21,7 +21,7 @@ jobs:
       - name: Prepare the public website
         run: |
           mkdir -p _site
-          cp -r index.html cv.html credits.html styles.css app.js assets projects .nojekyll _site/
+          cp -r index.html cv.html credits.html styles.css app.js motion.css motion.js assets projects .nojekyll _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
